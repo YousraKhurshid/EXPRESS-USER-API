@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
-const categoryRouter = require('./API/Categories/Router')
+const categoryRouter = require('./api/category/router')
 
 const port = process.env.SERVER_PORT || 3200
 
