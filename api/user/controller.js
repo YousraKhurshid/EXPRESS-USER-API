@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
-const User = require('./schema')
+const User = require('./model')
 const { hash, compare } = require('bcryptjs')
 const { sign } = require('jsonwebtoken')
 

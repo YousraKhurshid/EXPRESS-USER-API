@@ -3,6 +3,6 @@ const router = app.Router()
 const { getProducts, postProducts } = require('./controller')
 
 router.get('/products', getProducts)
-router.post('/products', postProducts)
+router.post('/addproduct', postProducts)
 
 module.exports = router
