@@ -7,12 +7,20 @@ const { sign } = require('jsonwebtoken')
 
 const Dummy = (req, res) => {
     res.json({
-        user: "BQ " + req.body.user
+
+        username: "" + req.body.name
     })
 }
 
 const SignUp = async (req, res) => {
     const { username, password, email } = req.body;
+    app.use(bodyParser.json());
+
+    app.listen(port, () => {
+        console.log(`Server is running on http://localhost:${port}`);
+      });
+
+
     try {
         await mongoose.connect(process.env.MONGO_URI)
         console.log("DB Connected")
@@ -32,7 +40,7 @@ const SignUp = async (req, res) => {
         }
     }
     catch (error) {
-        res.json({
+        res.status(500).json({
             message: error.message
         })
     }
@@ -41,6 +49,8 @@ const SignUp = async (req, res) => {
 const Login = async (req, res) => {
 
     const { password, email } = req.body;
+    console.log("Request Body:", req.body);
+
 
     try {
         await mongoose.connect(process.env.MONGO_URI)
